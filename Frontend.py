@@ -69,21 +69,21 @@ class student:
     self.txtmobile.delete(0, END)
     self.txtmobile.insert(END, sd[8])
 
-def deleteData():
-  if len(StdID.get()) != 0 :
-    StudentDMS.deleteRec(sd[0])
-    clearData()
-    DisplayData()
+  def deleteData():
+    if len(StdID.get()) != 0 :
+      StudentDMS.deleteRec(sd[0])
+      clearData()
+      DisplayData()
 
-def searchDatabase():
-  studentList.delete(0, END)
-  for rows in StudentDMS.searchData(StdID.get(), firstName.get(), surName.get(), dob.get(), age.get(), gender.get(), address.get(), mobile.get()):
-    studentList.insert(END, rows, str(''))
-
-def update():
-  if len(StdID.get()) != 0:
-    StudentDMS.deleteRec(sd[0])
-  if len(StdID.get()) != 0:
-    StudentDMS.addStdRec(StdID.get(), firstName.get(), surName.get(), dob.get(), age.get(), gender.get(), address.get(), mobile.get())
+  def searchDatabase():
     studentList.delete(0, END)
-    studentList.insert(END, (StdID.get(), firstName.get(), surName.get(), dob.get(), age.get(), gender.get(), address.get(), mobile.get()))
+    for rows in StudentDMS.searchData(StdID.get(), firstName.get(), surName.get(), dob.get(), age.get(), gender.get(), address.get(), mobile.get()):
+      studentList.insert(END, rows, str(''))
+  
+  def update():
+    if len(StdID.get()) != 0:
+      StudentDMS.deleteRec(sd[0])
+    if len(StdID.get()) != 0:
+      StudentDMS.addStdRec(StdID.get(), firstName.get(), surName.get(), dob.get(), age.get(), gender.get(), address.get(), mobile.get())
+      studentList.delete(0, END)
+      studentList.insert(END, (StdID.get(), firstName.get(), surName.get(), dob.get(), age.get(), gender.get(), address.get(), mobile.get()))
