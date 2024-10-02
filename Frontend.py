@@ -20,6 +20,7 @@ class student:
     address = stringvar()
     mobile = stringvar()
 
+# Functions
   def iExit():
     iExit = tkinter.messagebox.askyesno("Student Database Management Systems", "Confirm if you want to exit")
     if iExit >0 :
@@ -87,3 +88,62 @@ class student:
       StudentDMS.addStdRec(StdID.get(), firstName.get(), surName.get(), dob.get(), age.get(), gender.get(), address.get(), mobile.get())
       studentList.delete(0, END)
       studentList.insert(END, (StdID.get(), firstName.get(), surName.get(), dob.get(), age.get(), gender.get(), address.get(), mobile.get()))
+
+# Frames
+  mainFrame = frame(self.root, bg = 'cadet blue')
+  mainFrame.grid()
+  titFrame = frame(mainFrame, bd=2, padx=54, pady=8, bg='ghost white', relief=ridge)
+  titFrame.pack(side=TOP)
+  self.lblTit = label(titFrame, font=('times new roman', 48, bold),text='Student Database Management System', bg='ghost white')
+  self.lblTit.grid()
+  buttonFrame = frame(mainFrame, bd=2, width=1350, height=70, padx=19, pady=10, bg='ghost white', relief=ridge)
+  buttonFrame.pack(side=bottom)
+  dataFrame = frame(mainFrame, bd=1, width=1300, height=400, padx=20, pady=20, relief=ridge, bg='cadet blue')
+  dataFrame.pack(side=bottom)
+  dataFrameLeft = labelFrame(dataFrame, bd=1, width=1000, height=600, padx=20, relief=ridge, bg='ghost white', font=('times new roman', 26, 'bold'),text='student info\n')
+  dataFrameLeft.pack(side=left)
+  dataFrameRight = labelFrame(DataFrame, bd=1, width=450, height=300, padx=31, pady=3, relief=RIDGE,bg="Ghost White",font=('times new roman',20,'bold'),text="Student Details\n")
+  dataFrameRight.pack(side=right)
+
+# Entries
+  self.lblStdID = label(dataFrameLeft, font=('times new roman', 20, 'bold'), text='student ID: ', padx=2, pady=2, bg='ghost white')
+  self.lblStdID.grid(row=0, column=0, sticky=w)
+  self.txtStdID = entry(dataFrameLeft, font=('times new roman', 20, 'bold'), textVariable=StdID, width=39)
+  self.txtStdID.grid(row=0, column=1)
+  
+  self.lblfNa = label(DataFrameLEFT, font=('times new roman', 20, 'bold'), text="firstName:", padx=2, pady=2,bg="Ghost White")
+  self.lblfNa.grid(row=1, column=0, sticky=w)
+  self.txtfNa = entry(DataFrameLEFT, font=('times new roman', 20, 'bold'), textvariable=firstName, width=39)
+  self.txtfNa.grid(row=1, column=1)
+
+  self.lblsNa = label(DataFrameLEFT, font=('times new roman', 20, 'bold'), text="surName:", padx=2, pady=2,bg="Ghost White")
+  self.lblsNa.grid(row=2, column=0, sticky=w)
+  self.txtsNa = entry(DataFrameLEFT, font=('times new roman', 20, 'bold'), textvariable=surName, width=39)
+  self.txtsNa.grid(row=2, column=1)
+
+  self.lbldob = label(DataFrameLEFT, font=('times new roman', 20, 'bold'), text="dob:", padx=2, pady=2,bg="Ghost White")
+  self.lbldob.grid(row=3, column=0, sticky=w)
+  self.txtdob = entry(DataFrameLEFT, font=('times new roman', 20, 'bold'), textvariable=dob, width=39)
+  self.txtdob.grid(row=3, column=1)
+
+  self.lblage = label(DataFrameLEFT, font=('times new roman', 20, 'bold'), text="age:", padx=2, pady=2,bg="Ghost White")
+  self.lblage.grid(row=4, column=0, sticky=w)
+  self.txtage = entry(DataFrameLEFT, font=('times new roman', 20, 'bold'), textvariable=age, width=39)
+  self.txtage.grid(row=4, column=1)
+
+  self.lblgender = label(DataFrameLEFT, font=('times new roman', 20, 'bold'), text="gender:", padx=2, pady=2,bg="Ghost White")
+  self.lblgender.grid(row=5, column=0, sticky=w)
+  self.txtgender = entry(DataFrameLEFT, font=('times new roman', 20, 'bold'), textvariable=gender, width=39)
+  self.txtgender.grid(row=5, column=1)
+
+  self.lbladr = label(DataFrameLEFT, font=('times new roman', 20, 'bold'), text="address:", padx=2, pady=2,bg="Ghost White")
+  self.lbladr.grid(row=6, column=0, sticky=w)
+  self.txtadr = entry(DataFrameLEFT, font=('times new roman', 20, 'bold'), textvariable=address, width=39)
+  self.txtadr.grid(row=6, column=1)
+
+  self.lblmobile = label(DataFrameLEFT, font=('times new roman', 20, 'bold'), text="mobile:", padx=2, pady=2,bg="Ghost White")
+  self.lblmobile.grid(row=7, column=0, sticky=w)
+  self.txtmobile = entry(DataFrameLEFT, font=('times new roman', 20, 'bold'), textvariable=mobile, width=39)
+  self.txtmobile.grid(row=7, column=1)
+
+# Scroll bar and list box
