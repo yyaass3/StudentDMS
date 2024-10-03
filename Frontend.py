@@ -147,3 +147,37 @@ class student:
   self.txtmobile.grid(row=7, column=1)
 
 # Scroll bar and list box
+  scrollbar = scrollbar(dataFrameRight)
+  scrollbar.grid(row=0, column=1, sticky='ns')
+
+  studentList = listbox(dataFrameRight, width=41, height=16, font=('times new roman', 12, 'bold'), yscrollcommand=scrollbar.set)
+  studentList.bind('<<listboxselect>>', studentRec)
+  studentList.grid(row-0, column=0, padx=8)
+  scrollbar.config(command=studentList.yview)
+
+# Buttons
+  self.btnaddData = button(buttonframe, text='Add New', font=('times new roman', 20, 'bold'), height=1, width=10, bd=4, command=addData)
+  self.btnaddData.grid(row=0, column=0)
+
+  self.btndisplayData = button(buttonFrame, text='Display', font=('times new roman', 20, 'bold'), height=1, width=10, bd=4, command=displayData)
+  self.btndisplayData.grid(row=0, column=1)
+
+  self.btnclearData = button(buttonFrame, text='Clear', font=('times new roman', 20, 'bold'), height=1, width=10, bd=4, command=clearData)
+  self.btnclearData.grid(row=0, column=2)
+
+  self.btndeleteData = button(buttonFrame, text='Delete', font=('times new roman', 20, 'bold'), height=1, width=10, bd=4, command=deleteData)
+  self.btndeleteData.grid(row=0, column=3)
+
+  self.btnsearchData = button(buttonFrame, text='Search', font=('times new roman', 20, 'bold'), height=1, width=10, bd=4, command=searchDatabase)
+  self.btnsearchData.grid(row=0, column=4)
+
+  self.btnupdateData = button(buttonFrame, text='Update', font=('times new roman', 20, 'bold'), height=1, width=10, bd=4, command=update)
+  self.btnupdateData.grid(row=0, column=5)
+
+  self.btnExit = button(buttonFrame, text='Exit', font=('times new roman', 20, 'bold'), height=1, width=10, bd=4, command=iExit)
+  self.btnExit.grid(row=0, column=6)
+
+if __name__ == '__main__':
+  root = tk()
+  application = student(root)
+  root.mainloop()
