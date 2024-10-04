@@ -1,4 +1,4 @@
-# backend
+# Backend
 import sqlite3
 
 # create student table
